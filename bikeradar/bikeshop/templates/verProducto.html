@@ -1,0 +1,533 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div id="content" class="site-content">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+            <div class="cont maincont">
+                <ul class="b-crumbs">
+                    <li><a href="{% url 'bikeshop:index' %}">Home</a></li>
+                    <li><a href="{% url 'bikeshop:mostrarCarrito' %}">Tienda</a></li>
+                    <li>Producto</li>
+                </ul>            <article>
+                <div class="prod">
+                    <div class="prod-slider-wrap prod-slider-shown">
+                        <div class="flexslider prod-slider" id="prod-slider">
+                            <ul class="slides">
+                                <li>
+                                    <a data-fancybox-group="prod" class="fancy-img" href={{producto.imagen22.url}}>
+                                        <img src={{ producto.imagen1.url }} alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-fancybox-group="prod" class="fancy-img" href={{producto.imagen33.url}}>
+                                        <img src={{ producto.imagen2.url }} alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="prod-slider-count"><p><span class="count-cur">1</span> / <span class="count-all">2</span></p><p class="hover-label prod-slider-zoom"><i class="icon ion-search"></i><span>Zoom In</span></p></div>
+                        </div>
+                        <div class="flexslider prod-thumbs" id="prod-thumbs">
+                            <ul class="slides">
+                                <li>
+                                    <img src={{ producto.imagen1.url }} alt="">
+                                </li>
+                                <li>
+                                    <img src={{ producto.imagen2.url }} alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="prod-cont">
+                        {% comment %} <div class="prod-rating-wrap">
+                            <p data-rating="4" class="prod-rating">                                
+                                <i class="rating-ico" title={{ star }}>                               
+                            </p>                            
+                            <p class="prod-rating-count">7</p>
+                        </div> {% endcomment %}
+                        <p class="prod-categs"><a href="#">{{producto.categoria}}</a></p>
+                        <h3>{{producto.marca}}</h3>
+                        <h1>{{producto.nombre}}</h1>
+                    <form action="{% url 'bikeshop:agregarItemAlCarrito' producto.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="variations_form cart">
+                            <p class="prod-price">S/ {{producto.precio}}</p>
+                            <p class="prod-excerpt">The {{producto.marca}} {{producto.nombre}} is the best in ... <a id="prod-showdesc" class="prod-excerpt-more" href="#">Leer Descripción</a></p>
+                            <div class="prod-add">
+                                <div class="variations">
+                                    <div class="variations-row">
+                                        <div class="label"><label >Сolor</label></div>
+                                        <div class="value">
+                                            <select>
+                                                <option value="">Elija un color</option>
+                                                <option value="blue">{{ producto.color }}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="button"><i class="icon ion-android-cart"></i> Añadir al carrito</button>
+                                <p class="qnt-wrap prod-li-qnt">
+                                    <a href="#" class="qnt-plus prod-li-plus"><i class="icon ion-arrow-up-b"></i></a>
+                                    <input type="text" value="1" name="cantidad" id="cantidad">
+                                    <a href="#" class="qnt-minus prod-li-minus"><i class="icon ion-arrow-down-b"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                        <div class="prod-props">
+                            <dl class="product_meta">
+                                <dt>Serie</dt>
+                                <dd>{{ producto.serie }}</dd>
+                                <dt>Marca</dt>
+                                <dd><a href="http://{{producto.marca}}.com" target="_blank">{{producto.marca}}</a></dd>
+                                <dt>Peso</dt>
+                                <dd>{{ producto.peso}} kg</dd>
+                                <dt>Dimensiones</dt>
+                                <dd>{{ producto.dimensiones}} cm</dd>
+                                <dt>Сolor</dt>
+                                <dd>{{ producto.color }}</dd>
+                                <dt>Fabricacion</dt>
+                                <dd>{{ producto.fabricacion }}</dd>
+                                <dt>Material</dt>
+                                <dd>{{ producto.material }}</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <p class="prod-badge">
+                        <span class="badge-1">TOP SELLER</span>
+                    </p>
+                </div>
+                <div class="prod-tabs-wrap">
+                    <ul class="prod-tabs">
+                        <li id="prod-desc" class="active" data-prodtab-num="1">
+                            <a data-prodtab="#prod-tab-1" href="#">Descripción</a>
+                        </li>
+                        <li data-prodtab-num="2" id="prod-props">
+                            <a data-prodtab="#prod-tab-2" href="#">Informacion adicional</a>
+                        </li>
+                        <li data-prodtab-num="3" id="prod-reviews">
+                            <a data-prodtab="#prod-tab-3" href="#">Comentarios</a>
+                        </li>
+                        <li class="prod-tabs-addreview">Agregar un comentario</li>	</ul>
+                    <div class="prod-tab-cont">
+                        <p data-prodtab-num="1" class="prod-tab-mob active" data-prodtab="#prod-tab-1">Description</p>
+                        <div class="prod-tab page-styling prod-tab-desc" id="prod-tab-1">
+                            <p>{{producto.descripcion }}</p>
+                        </div>
+                        <p data-prodtab-num="2" class="prod-tab-mob" data-prodtab="#prod-tab-2">Additional information</p>
+                        <div class="prod-tab" id="prod-tab-2">
+                            <dl class="prod-tab-props">
+                                <dt>Peso</dt>
+                                <dd>{{ producto.peso}}</dd>
+                                <dt>Dimensiones</dt>
+                                <dd>{{ producto.dimensiones}} cm</dd>
+                                <dt>Сolor</dt>
+                                <dd><p><a href="#">{{ producto.color }}</a></p></dd>
+                                <dt>Fabricacion</dt>
+                                <dd><p><a href="#">{{ producto.fabricacion }}</a></p></dd>
+                                <dt>Material</dt>
+                                <dd><p><a href="#">{{ producto.material }}</a></p></dd>
+                            </dl>
+                        </div>
+                        <p data-prodtab-num="3" class="prod-tab-mob" data-prodtab="#prod-tab-3">Reviews (7)</p>
+                        <div class="prod-tab prod-reviews" id="prod-tab-3">
+                            <div id="reviews">
+                                <div id="review_form_wrapper" class="prod-addreview-form">
+                                    <div id="review_form">
+                                        <div id="respond" class="comment-respond">
+                                            <p class="prod-tab-addreview" id="reply-title">Add a Review</p>
+                                            <form action="#" method="post" id="commentform" class="comment-form">
+                                                <div class="comment-form-rating">
+                                                    <p class="stars"><span><a class="star-1" href="#">1</a><a class="star-2" href="#">2</a><a class="star-3" href="#">3</a><a class="star-4" href="#">4</a><a class="star-5" href="#">5</a></span></p>
+                                                    <select>
+                                                        <option value="">Rate…</option>
+                                                        <option value="5">Perfect</option>
+                                                        <option value="4">Good</option>
+                                                        <option value="3">Average</option>
+                                                        <option value="2">Not that bad</option>
+                                                        <option value="1">Very Poor</option>
+                                                    </select>
+                                                </div>
+                                                <textarea placeholder="Review"></textarea>
+                                                <input type="submit" class="submit" value="Add a Review">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul id="comments">
+                                    {% comment %} COMENTARIOSSSSSSS {% endcomment %}
+                                    <li class="prod-review">
+                                        <div>
+                                            <h3>admin</h3>
+                                            <p class="prod-review-rating" title="Rated 5 out of 5">
+                                                <i class="rating-ico"></i>
+                                                <i class="rating-ico"></i>
+                                                <i class="rating-ico"></i>
+                                                <i class="rating-ico"></i>
+                                                <i class="rating-ico"></i>
+                                                <time datetime="2017-05-09T14:16:55+00:00">May 9, 2017</time>
+                                            </p>
+                                            <p>Aliquam ligula quam, vehicula non porta at, venenatis ac purus. Pellentesque pharetra, turpis sit amet elementum faucibus, tellus nisi condimentum metus, nec scelerisque tortor velit ac purus. Aenean interdum velit quis nisi rhoncus ullamcorper. Cras lorem metus, imperdiet vel tortor vitae, malesuada pellentesque felis. Nulla varius mi a varius semper. Sed tristique ligula tincidunt pellentesque rhoncus. Praesent purus urna, imperdiet in pellentesque sed, hendrerit quis mauris. Maecenas consequat ultrices augue ac tempor. Etiam semper eu ligula id iaculis. Morbi scelerisque neque at velit porta, et fringilla nisl pulvinar. Duis at rhoncus est, nec cursus orci. Nunc malesuada tellus magna, in feugiat mauris placerat eu. Nullam elementum est id aliquam imperdiet.</p>
+                                        </div>
+                                    </li>
+                                    {% comment %} FIN DE COMENTARIOSSSS {% endcomment %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="prod-related-ttl">You may also like…</h2>
+                <div class="row prod-items prod-items-4">
+                    <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                        <div class="sectgl prod-i">
+                            <div class="prod-i-top">
+                                <a class="prod-i-img" href="product.html">
+                                    <img src="http://placehold.it/290x258" alt="">
+                                </a>
+                                <div class="prod-i-actions">
+                                    <div class="prod-i-actions-in">
+                                        <div class="prod-li-favorites">
+                                            <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                        </div>
+                                        <p class="prod-quickview">
+                                            <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                        </p>
+                                        <p class="prod-i-cart">
+                                            <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                        </p>
+                                        <p class="prod-li-compare">
+                                            <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prod-i-bot">
+                                <div class="prod-i-info">
+                                    <p class="prod-i-price">$120.00</p>
+                                    <p class="prod-i-categ"><a href="catalog-gallery.html">Lighting</a></p>
+                                </div>
+                                <h3 class="prod-i-ttl"><a href="product.html">Searchlight Portable</a></h3>
+                            </div>
+                        </div>
+                    </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x258" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price"><del>$15.00</del> $20.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Other</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">Flooring</a></h3>
+                        </div>
+                    </div>
+                </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x195" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price">$18.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Other</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">Pneumatic Coil Hose</a></h3>
+                        </div>
+                    </div>
+                </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x258" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price">$45.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Other</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">Door Hinge Metal</a></h3>
+                        </div>
+                    </div>
+                </article>                                    </div>
+
+                <h2 class="prod-related-ttl">Related Products</h2>
+                <div class="row prod-items prod-items-4">
+                    <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                        <div class="sectgl prod-i">
+                            <div class="prod-i-top">
+                                <a class="prod-i-img" href="product.html">
+                                    <img src="http://placehold.it/290x258" alt="">
+                                </a>
+                                <div class="prod-i-actions">
+                                    <div class="prod-i-actions-in">
+                                        <div class="prod-li-favorites">
+                                            <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                        </div>
+                                        <p class="prod-quickview">
+                                            <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                        </p>
+                                        <p class="prod-i-cart">
+                                            <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                        </p>
+                                        <p class="prod-li-compare">
+                                            <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <p class="prod-i-badge"><span>Sale</span></p>
+                            </div>
+                            <div class="prod-i-bot">
+                                <div class="prod-i-info">
+                                    <p class="prod-i-price">$70.00</p>
+                                    <p class="prod-i-categ"><a href="catalog-gallery.html">Electricity</a></p>
+                                </div>
+                                <h3 class="prod-i-ttl"><a href="product.html">Universal Plug</a></h3>
+                            </div>
+                        </div>
+                    </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x258" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price"><del>$12.00</del> $22.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Tools</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">Drill Tool Kit</a></h3>
+                        </div>
+                    </div>
+                </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x258" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price">$24.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Pipes</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">Metal-Plastic Pipes</a></h3>
+                        </div>
+                    </div>
+                </article>                                            <article class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                    <div class="sectgl prod-i">
+                        <div class="prod-i-top">
+                            <a class="prod-i-img" href="product.html">
+                                <img src="http://placehold.it/290x258" alt="">
+                            </a>
+                            <div class="prod-i-actions">
+                                <div class="prod-i-actions-in">
+                                    <div class="prod-li-favorites">
+                                        <a href="wishlist.html" class="hover-label add_to_wishlist"><i class="icon ion-heart"></i><span>Add to Wishlist</span></a>
+                                    </div>
+                                    <p class="prod-quickview">
+                                        <a href="#" class="hover-label quick-view"><i class="icon ion-plus"></i><span>Quick View</span></a>
+                                    </p>
+                                    <p class="prod-i-cart">
+                                        <a href="#" class="hover-label prod-addbtn"><i class="icon ion-android-cart"></i><span>Add to Cart</span></a>
+                                    </p>
+                                    <p class="prod-li-compare">
+                                        <a href="compare.html" class="hover-label prod-li-compare-btn"><span>Compare</span><i class="icon ion-arrow-swap"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="prod-i-bot">
+                            <div class="prod-i-info">
+                                <p class="prod-i-price">$31.00</p>
+                                <p class="prod-i-categ"><a href="catalog-gallery.html">Electricity</a></p>
+                            </div>
+                            <h3 class="prod-i-ttl"><a href="product.html">LED Lamp</a></h3>
+                        </div>
+                    </div>
+                </article>                                    </div>
+
+            </article>
+            </div>
+        </main><!-- #main -->
+    </div><!-- #primary -->
+
+
+    <!-- Elements -->
+    <div class="content-area width-full">
+        <div class="maincont page-styling page-full">
+
+            <div class="container-fluid page-styling row-wrap-full product-special">
+                <div class="container">
+                    <div class="getspec">
+                        <div class="getspec-cont">
+                            <h3>warranty</h3>
+                            <p>for all goods</p>
+                            <form action="#" method="post" class="wpcf7 wpcf7-form">
+                                <p class="wpcf7-form-control-wrap">
+                                    <input size="40" type="text" placeholder="Name">
+                                </p>
+                                <p class="wpcf7-form-control-wrap">
+                                    <input size="40" type="email" placeholder="E-mail address">
+                                </p>
+                                <p class="wpcf7-form-control-wrap">
+                                    <input size="40" type="text" placeholder="Phone number">
+                                </p>
+                                <p>
+                                    <input type="submit" value="Send">
+                                </p>
+                            </form>
+                        </div>
+                        <a href="#" class="getspec-img">
+                            <img src="http://placehold.it/640x324" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mb20 page-styling row-wrap-container row-wrap-nottl">
+                <div class="row">
+                    <div class="cf-lg-4 col-sm-4">
+                        <div class="iconbox-item iconbox-i-3">
+                            <div class="iconbox-i-top">
+                                <p class="iconbox-i-img">
+                                    <i class="fa fa-road"></i>
+                                </p>
+                                <h3>Financing Services</h3>
+                            </div>
+                            <p>Vestibulum eu odio vitae neque blandit consequat ut nec nisi. Maecenas et velit sem. Nam egestas lectus vel fringilla accumsan.</p>
+                        </div>
+                    </div>
+                    <div class="cf-lg-4 col-sm-4">
+                        <div class="iconbox-item iconbox-i-3">
+                            <div class="iconbox-i-top">
+                                <p class="iconbox-i-img">
+                                    <i class="fa fa-truck"></i>
+                                </p>
+                                <h3>Lead Qualification</h3>
+                            </div>
+                            <p>Aliquam fermentum tortor lacus, id dictum tellus feugiat non. Donec rutrum ligula sed dui lobortis, id scelerisque sem volutpat.</p>
+                        </div>
+                    </div>
+                    <div class="cf-lg-4 col-sm-4">
+                        <div class="iconbox-item iconbox-i-3">
+                            <div class="iconbox-i-top">
+                                <p class="iconbox-i-img">
+                                    <i class="fa fa-shield"></i>
+                                </p>
+                                <h3>Security Service</h3>
+                            </div>
+                            <p>Etiam iaculis urna metus, in volutpat dolor faucibus at. Nulla vitae aliquet justo. Aenean in iaculis sapien. Vivamus rutrum hendrerit egestas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mb60 page-styling row-wrap-container row-wrap-nottl">
+                <div class="promobox-i promobox-i-hasbtn">
+                    <h3>Optio Quis Inventore</h3>
+                    <p>Nam dictum condimentum eros, eu tincidunt ex hendrerit sed. Fusce eleifend rutrum magna vel scelerisque. Donec purus sapien, tincidunt a congue quis, hendrerit quis massa.</p>
+                    <a class="promobox-i-link" href="#">READ MORE</a>
+                </div>
+            </div>
+            <div class="container-fluid page-styling row-wrap-full product-parallax-bg" style="background-image: url(http://placehold.it/1920x1280);"></div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+{% endblock%}
