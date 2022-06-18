@@ -190,12 +190,12 @@ html[xmlns] .flexslider .slides {
   border: 3px solid #fff;
 }
 .flex-control-paging li a:hover {
-  background: #6bc67c;
+  background: #f78b1f;
 }
 .flex-control-paging li a.flex-active {
-  background: #6bc67c;
+  background: #f78b1f;
   cursor: default;
-  border: 2px solid #6bc67c;
+  border: 2px solid #f78b1f;
   width: 14px;
   height: 14px;
   box-shadow: inset 0 0 0 2px #fff;

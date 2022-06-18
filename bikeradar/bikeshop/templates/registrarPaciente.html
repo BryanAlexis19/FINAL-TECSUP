@@ -1,0 +1,160 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="content" class="site-content"><div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+        <div class="cont maincont">
+            <h1 class="maincont-ttl">Registrar paciente</h1>
+            <ul class="b-crumbs">
+                <li><a href="{% url 'bikeshop:index' %}">Inicio</a></li>
+                <li>Registrar paciente</li>
+            </ul>                                                <article class="page-cont">
+            <div class="page-styling">
+
+                <div style="color:red; font-weight: bolder" role="alert">
+                    {{error}}
+                  </div>
+                <div class="auth-wrap">
+                    <div class="container-fluid ">
+                        <h2>Registre los datos</h2>
+                        <form method="post" action={% url 'bikeshop:registroCliente' %} class="container-fluid row prod-items prod-items-2">
+                            {% csrf_token %}
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="dni">DNI</label>
+                                <input type="text" name="dni" id="dni" maxlength="8"
+                                ondrop="return false;" onpaste="return false;" 
+                                onkeypress="return event.charCode>=48 && event.charCode<=57"
+                                required>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="apellido_p">Apellido paterno </label>
+                                <input type="text" name="apellido_p" id="apellido_p" required placeholder="Ingrese apellido paterno">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="apellido_m">Apellido materno </label>
+                                <input type="text" name="apellido_m" id="apellido_m" required placeholder="Ingrese apellido materno">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre" required placeholder="Ingrese nombre">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="fecha_nac">Fecha de nacimiento</label><br>
+                                <input type="date" name="fecha_nac" id="fecha_nac" required>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="lugar_nac">Lugar de nacimiento</label>
+                                <input type="text" name="lugar_nac" id="lugar_nac">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="telefono">Telefono </label>
+                                <input type="text" name="telefono" id="telefono" maxlength="9"
+                                ondrop="return false;" onpaste="return false;" 
+                                onkeypress="return event.charCode>=48 && event.charCode<=57">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="domicilio">Domicilio</label>
+                                <input type="text" name="domicilio" id="domicilio" required>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="genero">Genero</label>                               
+                                <select class="select-css" name="genero" id="genero" required>
+                                    <option value="" selected disabled hidden>Elegir</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>        
+                                </select>                                
+                            </p>                            
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="email">E-mail </label>
+                                <input type="email" name="email" id="email">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="grado_in">Grado de instrucción </label>
+                                <select class="select-css" name="grado_in" id="grado_in" required>
+                                    <option value="" selected disabled hidden>Elegir</option>
+                                    <option value="Sin Grado">Sin Grado</option>
+                                    <option value="Primaria">Primaria</option>
+                                    <option value="Secundaria">Secundaria</option>
+                                    <option value="Tecnica">Tecnica</option>
+                                    <option value="Universitaria">Universitaria</option>
+                                    <option value="Master">Master</option>
+                                    <option value="Doctorado">Doctorado</option>
+                                </select>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="tipo_seg">Tipo de seguro </label>
+                                <select class="select-css" name="tipo_seg" id="tipo_seg" required>
+                                    <option value="" selected disabled hidden>Elegir</option>
+                                    <option value="Sin seguro">Sin Seguro</option>
+                                    <option value="Essalud">Essalud</option>
+                                    <option value="Ministerio de Salud">Ministerio de Salud</option>
+                                    <option value="EPS">EPS</option>
+                                    <option value="Privado">Privado</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </p>
+
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="religion">Religion</label>
+                                <input type="text" name="religion" id="religion">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="ocupacion">Ocupacion</label>
+                                <input type="text" name="ocupacion" id="ocupacion">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="estado_civ">Estado Civil</label>
+                                <select class="select-css" name="estado_civ" id="estado_civ">
+                                    <option value="" selected disabled hidden>Elegir</option>
+                                    <option value="Soltero">Soltero</option>
+                                    <option value="Casado">Casado</option>
+                                    <option value="Divorciado">Divorciado</option>
+                                    <option value="Viudo">Viudo</option>
+                                </select>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="grupo_et">Grupo étnico</label>
+                                <input type="text" name="grupo_et" id="grupo_et">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="acomp_nombre">Nombre del acompañante</label>
+                                <input type="text" name="acomp_nombre" id="acomp_nombre">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="acomp_dni">DNI del acompañante</label>
+                                <input type="text" name="acomp_dni" id="acomp_dni">
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="acomp_parent">Parentezco del acompañante</label>
+                                <select class="select-css" name="acomp_parent" id="acomp_parent">
+                                    <option value="" selected disabled hidden>Elegir</option>
+                                    <option value="Padre">Padre</option>
+                                    <option value="Madre">Madre</option>
+                                    <option value="Hijo(a)">Hijo(a)</option>
+                                    <option value="Abuelo(a)">Abuelo(a)</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </p>
+                            <p class="cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="fecha_reg">Fecha del registro</label>
+                                <input type="text" name="fecha_reg" id="fecha_reg" disabled placeholder="Fechado automatico - no llenar">
+                            </p>                            
+                            <p class="auth-submit cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <label for="estado_reg">Estado del registro:</label></label><br>
+                                <input type="checkbox" id="estado_reg" value="estado_reg" checked>
+                                <label for="estado_reg">Activo?</label></label>
+                            </p>
+                            <p class="auth-submit cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <input type="submit" value="☑️ &nbsp; Registrar">
+                            </p>
+                        </form>
+                        <p class="auth-submit cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                            <input type="submit" value="⬅️ &nbsp; Regresar">
+                        </p>
+                    </div>                
+                </div>
+            </div>
+        </article>
+        </div>
+    </main><!-- #main -->
+</div><!-- #primary -->    </div><!-- #content -->
+{% endblock %}

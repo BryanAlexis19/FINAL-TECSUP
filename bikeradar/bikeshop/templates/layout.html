@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>BIKE RADAR</title>
+    <title>Nutrisan App</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -27,93 +27,143 @@
     <link rel="stylesheet" href="{% static 'assets/css/media.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/elements-media.css' %}">
 
+    <style>
+        #main-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /*SELECT VERSION 1*/
+
+        .select-css {
+            display: block;
+            font-size: 16px;
+            font-family: 'Verdana', sans-serif;
+            font-weight: 400;
+            color: #444;
+            line-height: 1.3;
+            padding: .4em 1.4em .3em .8em;
+            width: 400px;
+            max-width: 100%; 
+            box-sizing: border-box;
+            margin:0;
+            border: 1px solid #aaa;
+            box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+            border-radius: .3em;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+              linear-gradient(to bottom, #ffffff 0%,#f7f7f7 100%);
+            background-repeat: no-repeat, repeat;
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+          }
+          .select-css::-ms-expand {
+            display: none;
+          }
+          .select-css:hover {
+            border-color: #888;
+          }
+          .select-css:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 1px 3px #f78b1f;
+            box-shadow: 0 0 0 3px -moz-mac-focusring;
+            color: #222; 
+            outline: none;
+          }
+          .select-css option {
+            font-weight:normal;
+          }
+          
+          
+          .classOfElementToColor:hover {background-color:#f78b1f; color:black}
+          
+          .select-css option[selected] {
+              background-color: #f78b1f;
+          }
+
+          /*SELECT VERSION 2*/
+
+          .content-select select{
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+          .content-select select::-ms-expand {
+            display: none;
+        }
+
+          .content-select{
+            max-width: 250px;
+            position: relative;
+        }
+         
+        .content-select select{
+            display: inline-block;
+            width: 100%;
+            cursor: pointer;
+              padding: 7px 10px;
+              height: 42px;
+              outline: 0; 
+              border: 0;
+            border-radius: 0;
+            background: #f4f5fb;
+            color: #7b7b7b;
+            font-size: 1em;
+            color: #999;
+            font-family: 
+            'Quicksand', sans-serif;
+            border:2px solid rgba(0,0,0,0.2);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+         
+        .content-select select:hover{
+            background: #ffffff;
+        }
+         
+        /* 
+        Creamos la fecha que aparece a la izquierda del select.
+        Realmente este elemento es un cuadrado que sólo tienen
+        dos bordes con color y que giramos con transform: rotate(-45deg);
+        */
+        .content-select i{
+            position: absolute;
+            right: 20px;
+            top: calc(50% - 13px);
+            width: 16px;
+            height: 16px;
+            display: block;
+            border-left:4px solid #f78b1f;
+            border-bottom:4px solid #f78b1f;
+            transform: rotate(-45deg); /* Giramos el cuadrado */
+            transition: all 0.25s ease;
+        }
+         
+        .content-select:hover i{
+            margin-top: 3px;
+        }
+    </style>
 </head>
 <body>
 <div id="page" class="site">
 
 
-    <div class="container-fluid page-styling site-header-before">
+    <div class="container-fluid page-styling site-header-before" id="UPSIDE">
         <div class="row">
-            <div class="col-lg-4">
-                <ul class="links_list links_list-align-left align-center-desktop topbar-social">
+            <div class="col-lg-12">
+                <ul class="links_list links_list-align-center align-center-desktop topbar-contacts">
                     <li>
                         <p class="links_list-value">
-                            <a href="http://facebook.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="mailto:email@email.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-paper-plane"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="http://pinterest.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-pinterest-p"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="http://youtube.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-youtube-play"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="http://twitter.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="http://google.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-value">
-                            <a href="http://instagram.com" target="_blank" rel="nofollow">
-                                <i class="fa fa-instagram"></i>
-                            </a>
+                            <a href="{% url 'bikeshop:index' %}" id="main-title">SISTEMA DE GESTION DE CONSULA NUTRICIONAL</a>                            
                         </p>
                     </li>
                 </ul>
-            </div>
-            <div class="col-lg-8">
-                <ul class="links_list links_list-align-right align-center-desktop topbar-contacts">
-                    <li>
-                        <p class="links_list-label">
-                            Encuéntranos en
-                        </p>
-                        <p class="links_list-value">
-                            <a href="https://www.google.com/maps/place/12%C2%B003'12.8%22S+77%C2%B000'22.7%22W/@-12.0542327,-77.0068693,18.26z/data=!4m9!1m2!2m1!1sPasaje+Julio+C.+Tello+349,+Pasaje+Tello,+Cercado+de+Lima!3m5!1s0x9105c61cf58e7865:0xd244cdd24132bffd!7e2!8m2!3d-12.0535452!4d-77.006313" target="_blank" rel="nofollow">Calle Julio C. Tello 349 - El Agustino</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-label">
-                            E-mail
-                        </p>
-                        <p class="links_list-value">
-                            <a href="mailto:librale19@gmail.com">librale19@gmail.com</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="links_list-label">
-                            Contacto
-                        </p>
-                        <p class="links_list-value">
-                            <a href="tel:4785929899">991746203</a>
-                        </p>
-                    </li>
-                </ul>
+
             </div>
         </div>
     </div>
@@ -122,74 +172,23 @@
     <div class="site-header">
 
         <p class="h-logo">
-            <a href="{% url 'bikeshop:index' %}"><img src="{% static 'assets/img/logo3.png' %}" alt="MultiShop"></a>
+            <a href="{% url 'bikeshop:index' %}"><img src="{% static 'assets/img/logo2.png' %}" alt="Logo-Nutrisan"></a>
         </p><!--
     No Space
     --><div class="h-shop">
 
-        <form method="get" action="#" class="h-search" id="h-search">
-            <input type="text" placeholder="Search...">
-            <button type="submit"><i class="ion-search"></i></button>
-        </form>
-
         <ul class="h-shop-links">
-            {% comment %} <li class="h-search-btn" id="h-search-btn"><i class="ion-search"></i></li>
-            <li class="h-shop-icon h-wishlist">
-                <a title="Wishlist" href="wishlist.html">
-                    <i class="ion-heart"></i>
-                    <span>5</span>
-                </a>
-            </li>
-            <li class="h-shop-icon h-compare">
-                <a title="Compare List" href="compare.html">
-                    <i class="ion-arrow-swap"></i>
-                    <span>2</span>
-                </a>
-            </li> {% endcomment %}
+            
             <li class="h-shop-icon h-profile">
                 <a href="auth.html" title="My Account">
                     <i class="ion-android-person"></i>
-                </a>
+                </a>                
                 <ul class="h-profile-links">
                     <li><a href="{% url 'bikeshop:loginUsuario' %}">Iniciar sesion</a></li>
-                    <li><a href="{% url 'bikeshop:registroCliente' %}">Registrarse</a></li>
-                    {% comment %} <li><a href="compare.html">Compare</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li> {% endcomment %}
+                    <li><a href="{% url 'bikeshop:registroCliente' %}">Registrarse</a></li>                    
                 </ul>
-            </li>
-
-            <li class="h-cart">
-                <a class="cart-contents" href="{% url 'bikeshop:mostrarCarrito' %}">
-                    <p class="h-cart-icon">
-                        <i class="ion-android-cart"></i>
-                        <span>1+</span>
-                    </p>
-                    <p class="h-cart-total">S/ {{request.session.totalCart }}</p>
-                </a>
-                <div class="widget_shopping_cart">
-                    <div class="widget_shopping_cart_content">
-                        <ul class="cart_list">
-                            {% for key, value in request.session.cart.items %}
-                            <li>
-                                <a href="{% url 'bikeshop:eliminarProductoCarrito' value.producto_id %}" class="remove">&times;</a>
-                                <a href="{% url 'bikeshop:verProducto' value.producto_id %}">
-                                    {% comment %} <img src="http://placehold.it/100x67" alt=""> {% endcomment %}
-                                    <img src={{ value.imagen }} alt="">
-                                    {{ value.nombre}}
-                                </a>
-                                <span class="quantity">{{value.cantidad}} &times; {{ value.precio }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                        <p class="total"><b>Subtotal:</b>S/ {{request.session.totalCart }}</p>
-                        <p class="buttons">
-                            <a href="{% url 'bikeshop:mostrarCarrito' %}" class="button">Ver Carrito</a>
-                            <a href="checkout.html" class="button">Pagar</a>
-                        </p>
-                    </div>
-                </div>
-            </li>
-
+            </li>    
+            Bienvenido:
             <li class="h-menu-btn" id="h-menu-btn">
                 <i class="ion-navicon"></i> Menu
             </li>
@@ -206,56 +205,39 @@
                     </ul>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="catalog-gallery.html">Tienda</a>
+                    <a href="#">Consulta Nutricional</a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="catalog-gallery.html">Catalog - Gallery</a>
+                            <a href="#">Realizar nuevo Diagnóstico</a>
                         </li>
                         <li>
-                            <a href="catalog-list.html">Catalog - List</a>
+                            <a href="#">Ver Diagnósticos</a>
+                        </li>                     
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">Pacientes</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">Registrar nuevo Paciente</a>
                         </li>
                         <li>
-                            <a href="catalog-gallery-full.html">Catalog - No Sidebar</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Product Page</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="cart.html">Shop Pages</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="cart.html">Cart</a>
-                                </li>
-                                <li>
-                                    <a href="wishlist.html">Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="compare.html">Compare</a>
-                                </li>
-                                <li>
-                                    <a href="auth.html">Login</a>
-                                </li>
-                            </ul>
+                            <a href="#">Ver mis Pacientes</a>
                         </li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="about.html">Paginas</a>
+                    <a href="#">Calculadora nutricional</a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="about.html">About Us</a>
+                            <a href="#">Abrir Nutrimática</a>
                         </li>
                         <li>
-                            <a href="contacts.html">Contacts</a>
-                        </li>
-                        <li>
-                            <a href="gallery.html">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="404.html">Error 404</a>
+                            <a href="#">Actualizar tabla de alimentos</a>
                         </li>
                     </ul>
                 </li>
+                
             </ul>
         </nav>
 
@@ -274,92 +256,39 @@
         <div class="row">
             <div class="col-sm-12 col-md-4 widget align-center-tablet f-logo-wrap">
                 <a href="index.html" class="f-logo">
-                    <img src="{% static 'assets/img/logo.png' %}" alt="">
+                    <img src="{% static 'assets/img/logo2.png' %}" alt="">
                 </a>
-                <p>Tienda de Ciclismo y Aventura</p>
-                <button class="btn callback">Contactanos</button>
+                <p>2022 - Todos los derechos reservados® </p>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Empresa</h3>
+                <h3 class="widgettitle">Plataforma</h3>
                 <ul class="menu">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="#">Inicio</a>
                     </li>
                     <li>
-                        <a href="about.html">Acerca de Nosotros</a>
-                    </li>
-                    <li>
-                        <a href="contacts.html">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="index.html">Galleria</a>
+                        <a href="#">Panel de administracion</a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Tienda</h3>
+                <h3 class="widgettitle">Nosotros</h3>
                 <ul class="menu">
                     <li>
-                        <a href="catalog-list.html">MTB</a>
-                    </li>
-                    <li>
-                        <a href="catalog-gallery.html">RUTA</a>
-                    </li>
-                    <li>
-                        <a href="catalog-gallery-full.html">Triatlon</a>
-                    </li>
-                    <li>
-                        <a href="catalog-gallery.html">Time Trial</a>
+                        <a href="#">Contacto</a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Account</h3>
+                <h3 class="widgettitle">Mas</h3>
                 <ul class="menu">
                     <li>
-                        <a href="wishlist.html">Registrate</a>
-                    </li>
-                    <li>
-                        <a href="compare.html">Inicie Sesion</a>
-                    </li>
-                    <li>
-                        <a href="cart.html">Carrito</a>
-                    </li>
-                    <li>
-                        <a href="auth.html">Tienda</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Blog</h3>
-                <ul class="menu">
-                    <li>
-                        <a href="blog.html">All Posts</a>
-                    </li>
-                    <li>
-                        <a href="post.html">News</a>
-                    </li>
-                    <li>
-                        <a href="post-slider.html">Articles</a>
-                    </li>
-                    <li>
-                        <a href="blog.html">Reviews</a>
+                        <a href="#UPSIDE">Volver arriba</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-
-    <div class="form-validate modal-form" id="modal-form">
-        <form action="#" method="POST" class="form-validate">
-            <h4>Contact Us</h4>
-            <input type="text" placeholder="Your name" data-required="text" name="name">
-            <input type="text" placeholder="Your phone" data-required="text" name="phone">
-            <input type="text" placeholder="Your email" data-required="text" data-required-email="email" name="email">
-            <input class="btn1" type="submit" value="Send">
-        </form>
-    </div>
-
     
 </div><!-- #page -->
 
