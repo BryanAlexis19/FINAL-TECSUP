@@ -19,5 +19,10 @@ urlpatterns = [
     path('registrarPedido', views.registrarPedido, name="registrarPedido"),
     path('confirmarPedido', views.confirmarPedido, name="confirmarPedido"),
     path('gracias', views.gracias, name="gracias"),
+    # MIS VIEWS PARA NUTRISAN
+    path('registrarPaciente', views.registrarPaciente, name="registrarPaciente"),
+    path('actualizarPaciente', views.actualizarPaciente, name="actualizarPaciente"),
+    path('buscarPaciente', views.buscarPaciente, name="buscarPaciente"),
+    
 ]
 

@@ -3,7 +3,19 @@ from .models import Marca, Categoria, Producto, Comentario, FormaPago, Cliente, 
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from .carrito import Cart
+#NUTRISAN VIEWS
+
+def registrarPaciente(request):
+    return render(request, 'registrarPaciente.html')
+
+def actualizarPaciente(request):
+    return render(request, 'actualizarPaciente.html')
+
+def buscarPaciente(request):
+    return render(request, 'buscarPaciente.html')
+
 # Create your views here.
+
 
 def index(request):
     lstCategorias = Categoria.objects.all()
