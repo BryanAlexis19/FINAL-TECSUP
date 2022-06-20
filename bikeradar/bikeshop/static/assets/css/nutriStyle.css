@@ -58,3 +58,19 @@
 .select-css option[selected] {
   background-color: #f78b1f;
 }
+
+/* Subtitulos en el registro de diagnostico */
+
+.subtitle-wraper {
+  color: #ffffff;
+  background-color: #f78b1f;
+  text-align: center;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.blue-color {
+  color: #3946bc;
+}

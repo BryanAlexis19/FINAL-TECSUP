@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login,logout
 from .carrito import Cart
 #NUTRISAN VIEWS
 
+#-----------VISTAS DEL PACIENTE--------------------
 def registrarPaciente(request):
     return render(request, 'registrarPaciente.html')
 
@@ -13,6 +14,10 @@ def actualizarPaciente(request):
 
 def buscarPaciente(request):
     return render(request, 'buscarPaciente.html')
+
+#-----------VISTAS DEL DIAGNOSTICO-----------------
+def registrarDiagnostico(request):
+    return render(request, 'registrarDiagnostico.html')
 
 # Create your views here.
 

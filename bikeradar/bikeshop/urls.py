@@ -20,9 +20,13 @@ urlpatterns = [
     path('confirmarPedido', views.confirmarPedido, name="confirmarPedido"),
     path('gracias', views.gracias, name="gracias"),
     # MIS VIEWS PARA NUTRISAN
+    #----------------------------------------------------PACIENTE----------------------------------------------------
     path('registrarPaciente', views.registrarPaciente, name="registrarPaciente"),
     path('actualizarPaciente', views.actualizarPaciente, name="actualizarPaciente"),
     path('buscarPaciente', views.buscarPaciente, name="buscarPaciente"),
+    #----------------------------------------------------DIAGNOSTICO-------------------------------------------------
+    path('registrarDiagnostico', views.registrarDiagnostico, name="registrarDiagnostico"),
+    
     
 ]
 
