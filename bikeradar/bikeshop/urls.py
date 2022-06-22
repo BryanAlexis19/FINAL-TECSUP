@@ -26,7 +26,10 @@ urlpatterns = [
     path('buscarPaciente', views.buscarPaciente, name="buscarPaciente"),
     #----------------------------------------------------DIAGNOSTICO-------------------------------------------------
     path('registrarDiagnostico', views.registrarDiagnostico, name="registrarDiagnostico"),
-    
-    
+    path('actualizarDiagnostico', views.actualizarDiagnostico, name="actualizarDiagnostico"),
+    path('verDiagnosticos', views.verDiagnosticos, name="verDiagnosticos"),
+    #----------------------------------------------------ALIMENTO---------------------------------------------------
+    path('registrarAlimento', views.registrarAlimento, name="registrarAlimento"),
+        
 ]
 

@@ -39,7 +39,7 @@
                 <ul class="links_list links_list-align-center align-center-desktop topbar-contacts">
                     <li>
                         <p class="links_list-value">
-                            <a href="{% url 'bikeshop:index' %}" id="main-title">SISTEMA DE GESTION DE CONSULA NUTRICIONAL</a>                            
+                            <a href="{% url 'bikeshop:index' %}" id="main-title">SISTEMA DE GESTION DE CONSULTA NUTRICIONAL</a>                            
                         </p>
                     </li>
                 </ul>
@@ -92,7 +92,7 @@
                             <a href="{% url 'bikeshop:registrarDiagnostico' %}">Realizar nuevo Diagnóstico</a>
                         </li>
                         <li>
-                            <a href="#">Ver Diagnósticos</a>
+                            <a href="{% url 'bikeshop:verDiagnosticos' %}">Ver Diagnósticos</a>
                         </li>                     
                     </ul>
                 </li>
@@ -114,7 +114,7 @@
                             <a href="#">Abrir Nutrimática</a>
                         </li>
                         <li>
-                            <a href="#">Actualizar tabla de alimentos</a>
+                            <a href="{% url 'bikeshop:registrarAlimento' %}">Actualizar tabla de alimentos</a>
                         </li>
                     </ul>
                 </li>

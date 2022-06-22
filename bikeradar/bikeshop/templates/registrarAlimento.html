@@ -1,0 +1,220 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="content" class="site-content"><div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+        <div class="cont maincont">
+            <h1 class="maincont-ttl">REGISTRAR ALIMENTO</h1>
+            <ul class="b-crumbs">
+                <li><a href="{% url 'bikeshop:index' %}">Inicio</a></li>
+                <li>Registrar Alimento</li>
+            </ul>                                                <article class="page-cont">
+            <div class="page-styling">
+
+                <div style="color:red; font-weight: bolder" role="alert">
+                    {{error}}
+                  </div>
+                <div class="auth-wrap">
+                    <div class="container-fluid ">
+                        
+                        <form method="post" action={% url 'bikeshop:registroCliente' %} class="container-fluid row prod-items prod-items-2">
+                            {% csrf_token %}                            
+                            <!-- ACERCA DEL ALIMENTO -->
+                            <div class="container-fluid">
+                            </div class="row prod-items prod-items-2">
+                                <h3 class="subtitle-wraper">Acerca del alimento</h3>
+                                <p  class="bold-text cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                    <label for="codigo_alimento">Codigo del Alimento</label>                                    
+                                    <input type="text" name="codigo_alimento" id="codigo_alimento" maxlength="6">
+                                </p>
+                                <p class="cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                    <label for="categoria_alimento">Categoria del Alimento</label>                               
+                                    <select class="select-css" name="categoria_alimento" id="categoria_alimento" required>
+                                        <option value="" selected disabled hidden>Elegir</option>
+                                        <option value="1">Cereales y Derivados</option>
+                                        <option value="2">Verduras, Hortalizas y Derivados</option>        
+                                    </select>                                
+                                </p> 
+                                <p  class="bold-text cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                    <label for="nombre_alimento">Nombre del Alimento</label>                                    
+                                    <input type="text" name="estado_nut" id="nombre_alimento" maxlength="50">
+                                </p>
+                                </div>
+                            </div>
+                            <!-- NUTIENTES -->
+                            <div class="container-fluid">
+                                <h3 class="subtitle-wraper">Composicion Nutricional</h3>                                
+                                
+                                <p >
+                                    <label class="bold-text blue-color">Nutrientes</label>                                    
+                                </p>
+                                <div class="row prod-items prod-items-4">
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="energ" class="bold-text">Energia(kcal)</label>
+                                    <input type="text" name="energ" id="energ"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46"
+                                    >
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="agua" class="bold-text">Agua(g)</label>
+                                    <input type="text" name="agua" id="agua"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46"
+                                    >
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="prot_t" class="bold-text">Proteínas(gr)</label>
+                                    <input type="text" name="req_prot" id="req_prot"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="grasa_t" class="bold-text">Grasas(gr)</label>
+                                    <input type="text" name="grasa_t" id="grasa_t"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="carboh" class="bold-text">Carbohidratos(gr)</label>
+                                    <input type="text" name="carboh" id="carboh"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="fibra" class="bold-text">Fibra(gr)</label>
+                                    <input type="text" name="fibra" id="fibra"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="calc" class="bold-text">Calcio(mg)</label>
+                                    <input type="text" name="calc" id="calc"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="fosf" class="bold-text">Fosforo(mg)</label>
+                                    <input type="text" name="fosf" id="fosf"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="zinc" class="bold-text">Zinc(mg)</label>
+                                    <input type="text" name="zinc" id="zinc"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="hier" class="bold-text">Hierro(mg)</label>
+                                    <input type="text" name="hier" id="hier"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="b_carot" class="bold-text">Beta Caroteno(µg)</label>
+                                    <input type="text" name="b_carot" id="b_carot"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="vit_a" class="bold-text">Vitamina A(µg)</label>
+                                    <input type="text" name="vit_a" id="b_carot"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="tiamina" class="bold-text">Tiamina(mg)</label>
+                                    <input type="text" name="tiamina" id="tiamina"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="ribo" class="bold-text">Riboflavina(mg)</label>
+                                    <input type="text" name="ribo" id="ribo"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="niac" class="bold-text">Niacina(mg)</label>
+                                    <input type="text" name="niac" id="niac"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="vit_c" class="bold-text">Vitamina C(mg)</label>
+                                    <input type="text" name="vit_c" id="vit_c"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="aci_fol" class="bold-text">Acido Fólico(µg)</label>
+                                    <input type="text" name="aci_fol" id="aci_fol"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="sodio" class="bold-text">Sodio(mg)</label>
+                                    <input type="text" name="sodio" id="sodio"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                <p class="cf-sm-6 cf-md-6 cf-lg-3 col-xs-6 col-sm-6 col-md-6 col-lg-3 sectgl-item sectgl-item">
+                                    <label for="potas" class="bold-text">Potasio(mg)</label>
+                                    <input type="text" name="potas" id="potas"
+                                    ondrop="return false;" onpaste="return false;" 
+                                    onkeypress="return (event.charCode>=48 && event.charCode<=57) || event.charCode==46">
+                                </p>
+                                
+                                
+                                
+
+                                
+                                </div>
+                            </div>
+                                                        
+                            <!-- <p class="auth-submit cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                                <input type="submit" value="☑️ &nbsp; Registrar">
+                            </p> -->
+                            <div class="row mb65 jcenter">
+                            
+                                <input type="submit" value="☑️ &nbsp; Registrar" class="cf-sm-6 cf-lg-3 col-sm-6 col-md-3">
+                            
+                            
+                                <button type="button" value="⬅️ &nbsp; Regresar" class="btn-style cf-sm-6 cf-lg-3 col-sm-6 col-md-3">⬅️ &nbsp; Regresar</button>
+                            
+                        </div>
+                        </form>
+                        
+                        <!-- FORMA PRUEBA 1 -->
+                        <!-- <div class="container-fluid row prod-items prod-items-3">
+                            <p class="cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                <input type="submit" value="📝 &nbsp; Adjuntar Archivo">
+                            </p>
+                            <p class="cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                <input type="submit" value="📝 &nbsp; Exportar PDF">
+                            </p>
+                            <p class="cf-sm-6 cf-md-4 cf-lg-4 col-xs-6 col-sm-6 col-md-4 col-lg-4 sectgl-item">
+                                <input type="submit" value="⬅️ &nbsp; Regresar">
+                            </p>
+                        </div> -->
+                       
+                        <!-- FORMA PRUEBA 2 -->
+                        <!-- <div>
+                            
+                                <input type="submit" value="📝 &nbsp; Adjuntar Archivo" class="btn-style">
+                            
+                           
+                                <input type="submit" value="📝 &nbsp; Exportar PDF">
+                            
+                            
+                                <input type="submit" value="⬅️ &nbsp; Regresar">
+                            
+                        </div> -->
+                    </div>                
+                </div>
+            </div>
+        </article>
+        </div>
+    </main><!-- #main -->
+</div><!-- #primary -->    </div><!-- #content -->
+{% endblock %}

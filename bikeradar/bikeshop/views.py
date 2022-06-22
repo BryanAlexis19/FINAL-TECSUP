@@ -19,6 +19,25 @@ def buscarPaciente(request):
 def registrarDiagnostico(request):
     return render(request, 'registrarDiagnostico.html')
 
+def actualizarDiagnostico(request):
+    return render(request, 'actualizarDiagnostico.html')
+
+def verDiagnosticos(request):
+    return render(request, 'verDiagnosticos.html')
+
+#-----------VISTAS DEL ALIMENTO-------------------
+def registrarAlimento(request):
+    return render(request, 'registrarAlimento.html')
+    
+
+
+
+
+
+
+
+
+
 # Create your views here.
 
 

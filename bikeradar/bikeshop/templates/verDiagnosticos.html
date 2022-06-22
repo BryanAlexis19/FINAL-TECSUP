@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="content" class="site-content"><div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+        <div class="cont maincont">
+            <h1 class="maincont-ttl">Ver Diagnosticos por Paciente</h1>
+            <ul class="b-crumbs">
+                <li><a href="{% url 'bikeshop:index' %}">Inicio</a></li>
+                <li>Ver Diagnosticos</li>
+            </ul>                                                <article class="page-cont">
+            <div class="page-styling">
+
+                <div style="color:red; font-weight: bolder" role="alert">
+                    {{error}}
+                  </div>
+                <div class="auth-wrap page-styling">
+                    <div class="container-fluid">
+                        <!-- <h2>Buscar por DNI</h2> -->
+                        <form method="post" action={% url 'bikeshop:registroCliente' %} class="container-fluid prod-items auth-col">
+                            {% csrf_token %}
+                            <p>
+                                <label for="dni">DNI</>
+                                <input type="text" name="dni" id="dni" maxlength="8"
+                                ondrop="return false;" onpaste="return false;" 
+                                onkeypress="return event.charCode>=48 && event.charCode<=57"
+                                placeholder="Busque por DNI"
+                                required>
+                                <input type="submit" value="🔍 &nbsp; Buscar ">
+                            </p>                                                                                                                                                           
+                        </form>
+                        <form method="post" action={% url 'bikeshop:registroCliente' %} class="container-fluid row auth-col">
+                            {% csrf_token %}
+                            <p>                                                                
+                                <input type="submit" value="🔍 &nbsp; Registrar nuevo Diagnóstico">
+                            </p>                                                                                                                                                             
+                        </form>
+                        <p>
+                            <label class="bold-text blue-color font-plus">Paciente: Renzo Camilo Torres. DNI 65820413</label>                                    
+                            </p>                                                                                                                                                                                  
+                    </div>
+
+                    <!-- TABLA DE PACIENTES -->
+                    <div class="wccm-compare-table">
+                        <div class="wccm-thead">
+                            <div class="wccm-tr">
+                                <div class="wccm-th"></div>
+                                <div class="wccm-table-wrapper">
+                                    <table class="wccm-table">
+                                        <tr>
+                                            <td class="wccm-td">                                                
+                                                <div>
+                                                    <a href="#">Diagnostico</a>
+                                                </div>
+                                                <div class="price">Código</div>
+                                            </td>
+                                            <td class="wccm-td">                                                
+                                                <div>
+                                                    <a href="#">Atención</a>
+                                                </div>
+                                                <div class="price">Fecha</div>
+                                            </td>
+                                            <td class="wccm-td">                                                
+                                                <div>
+                                                    <a href="#"></a>
+                                                </div>
+                                                <div class="price">Profesional</div>
+                                            </td>
+                                            <td class="wccm-td">                                                
+                                                <div>
+                                                    <a href="#">Ver</a>
+                                                </div>
+                                                <div class="price">Diagnostico</div>
+                                            </td>
+                                            <td class="wccm-td">                                            
+                                                <div>
+                                                    <a href="#"></a>
+                                                </div>
+                                                <div class="price">Eliminar</div>
+                                            </td>
+                                        <tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wccm-tbody">
+                            <div class="wccm-tr">
+                                <div class="wccm-th">Item 1</div>
+                                <div class="wccm-table-wrapper">
+                                    <table class="wccm-table">
+                                        <tr>                                            
+                                            <td class="wccm-td"><p>0100</p></td>
+                                            <td class="wccm-td"><p>10/12/2021</p></td>
+                                            <td class="wccm-td"><p>Sofia Dueñas Arámbulo</p></td>
+                                            <td class="wccm-td"><p><a href="">Ver Diagnóstico</a></p></td>
+                                            <td class="wccm-td"><p><a href="#">Eliminar</a></p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="wccm-tr">
+                                <div class="wccm-th">Item 2</div>
+                                <div class="wccm-table-wrapper">
+                                    <table class="wccm-table">
+                                        <tr>
+                                            <td class="wccm-td"><p>0120</p></td>
+                                            <td class="wccm-td"><p>04/02/2022</p></td>
+                                            <td class="wccm-td"><p>Liliana Vega Guillen</p></td>
+                                            <td class="wccm-td"><p><a href="">Ver Diagnóstico</a></p></td>
+                                            <td class="wccm-td"><p><a href="#">Eliminar</a></p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="wccm-tr">
+                                <div class="wccm-th">Item 3</div>
+                                <div class="wccm-table-wrapper">
+                                    <table class="wccm-table">
+                                        <tr>
+                                            <td class="wccm-td"><p>0100</p></td>
+                                            <td class="wccm-td"><p>21/06/2022</p></td>
+                                            <td class="wccm-td"><p>Elizabeth Flores Urbano</p></td>
+                                            <td class="wccm-td"><p><a href="">Ver Diagnóstico</a></p></td>
+                                            <td class="wccm-td"><p><a href="#">Eliminar</a></p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!-- BOTON REGRESAR -->
+                        <p class="auth-submit cf-sm-6 cf-md-6 cf-lg-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 sectgl-item">
+                            <input type="submit" value="⬅️ &nbsp; Regresar">
+                        </p>
+                    </div>                   
+                </div>
+            </div>
+        </article>
+        </div>
+    </main><!-- #main -->
+</div><!-- #primary -->    </div><!-- #content -->
+{% endblock %}
