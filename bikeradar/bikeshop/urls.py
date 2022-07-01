@@ -29,7 +29,10 @@ urlpatterns = [
     path('actualizarDiagnostico', views.actualizarDiagnostico, name="actualizarDiagnostico"),
     path('verDiagnosticos', views.verDiagnosticos, name="verDiagnosticos"),
     #----------------------------------------------------ALIMENTO---------------------------------------------------
+    path('verAlimentos', views.verAlimentos, name="verAlimentos"),
     path('registrarAlimento', views.registrarAlimento, name="registrarAlimento"),
+    path('actualizarAlimento', views.actualizarAlimento, name="actualizarAlimento"),
+
         
 ]
 

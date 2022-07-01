@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Nutrisan App</title>
+    <title>BIKE RADAR</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -26,52 +26,172 @@
     <link rel="stylesheet" href="{% static 'assets/css/elements.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/media.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/elements-media.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/nutriStyle.css' %}">
-    
+
 </head>
 <body>
-<div id="page" class="site header-sticky">
+<div id="page" class="site">
 
 
-    <div class="container-fluid page-styling site-header-before" id="UPSIDE">
+    <div class="container-fluid page-styling site-header-before">
         <div class="row">
-            <div class="col-lg-12">
-                <ul class="links_list links_list-align-center align-center-desktop topbar-contacts">
+            <div class="col-lg-4">
+                <ul class="links_list links_list-align-left align-center-desktop topbar-social">
                     <li>
                         <p class="links_list-value">
-                            <a href="{% url 'bikeshop:index' %}" id="main-title">SISTEMA DE GESTION DE CONSULTA NUTRICIONAL</a>                            
+                            <a href="http://facebook.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="mailto:email@email.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-paper-plane"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="http://pinterest.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-pinterest-p"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="http://youtube.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-youtube-play"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="http://twitter.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="http://google.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-value">
+                            <a href="http://instagram.com" target="_blank" rel="nofollow">
+                                <i class="fa fa-instagram"></i>
+                            </a>
                         </p>
                     </li>
                 </ul>
-
+            </div>
+            <div class="col-lg-8">
+                <ul class="links_list links_list-align-right align-center-desktop topbar-contacts">
+                    <li>
+                        <p class="links_list-label">
+                            Encuéntranos en
+                        </p>
+                        <p class="links_list-value">
+                            <a href="https://www.google.com/maps/place/12%C2%B003'12.8%22S+77%C2%B000'22.7%22W/@-12.0542327,-77.0068693,18.26z/data=!4m9!1m2!2m1!1sPasaje+Julio+C.+Tello+349,+Pasaje+Tello,+Cercado+de+Lima!3m5!1s0x9105c61cf58e7865:0xd244cdd24132bffd!7e2!8m2!3d-12.0535452!4d-77.006313" target="_blank" rel="nofollow">Calle Julio C. Tello 349 - El Agustino</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-label">
+                            E-mail
+                        </p>
+                        <p class="links_list-value">
+                            <a href="mailto:librale19@gmail.com">librale19@gmail.com</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="links_list-label">
+                            Contacto
+                        </p>
+                        <p class="links_list-value">
+                            <a href="tel:4785929899">991746203</a>
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
 
-    <div class="site-header ">
+    <div class="site-header">
 
         <p class="h-logo">
-            <a href="{% url 'bikeshop:index' %}"><img src="{% static 'assets/img/logo2.png' %}" alt="Logo-Nutrisan"></a>
+            <a href="{% url 'bikeshop:index' %}"><img src="{% static 'assets/img/logo3.png' %}" alt="MultiShop"></a>
         </p><!--
     No Space
     --><div class="h-shop">
 
+        <form method="get" action="#" class="h-search" id="h-search">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="ion-search"></i></button>
+        </form>
+
         <ul class="h-shop-links">
-            
+            {% comment %} <li class="h-search-btn" id="h-search-btn"><i class="ion-search"></i></li>
+            <li class="h-shop-icon h-wishlist">
+                <a title="Wishlist" href="wishlist.html">
+                    <i class="ion-heart"></i>
+                    <span>5</span>
+                </a>
+            </li>
+            <li class="h-shop-icon h-compare">
+                <a title="Compare List" href="compare.html">
+                    <i class="ion-arrow-swap"></i>
+                    <span>2</span>
+                </a>
+            </li> {% endcomment %}
             <li class="h-shop-icon h-profile">
                 <a href="auth.html" title="My Account">
                     <i class="ion-android-person"></i>
-                </a>                
+                </a>
                 <ul class="h-profile-links">
                     <li><a href="{% url 'bikeshop:loginUsuario' %}">Iniciar sesion</a></li>
-                    <li><a href="{% url 'bikeshop:registroCliente' %}">Registrarse</a></li>                    
+                    <li><a href="{% url 'bikeshop:registroCliente' %}">Registrarse</a></li>
+                    {% comment %} <li><a href="compare.html">Compare</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li> {% endcomment %}
                 </ul>
-            </li>    
-            Bienvenido(a): Sofia Dueñas Arambulo
+            </li>
+
+            <li class="h-cart">
+                <a class="cart-contents" href="{% url 'bikeshop:mostrarCarrito' %}">
+                    <p class="h-cart-icon">
+                        <i class="ion-android-cart"></i>
+                        <span>1+</span>
+                    </p>
+                    <p class="h-cart-total">S/ {{request.session.totalCart }}</p>
+                </a>
+                <div class="widget_shopping_cart">
+                    <div class="widget_shopping_cart_content">
+                        <ul class="cart_list">
+                            {% for key, value in request.session.cart.items %}
+                            <li>
+                                <a href="{% url 'bikeshop:eliminarProductoCarrito' value.producto_id %}" class="remove">&times;</a>
+                                <a href="{% url 'bikeshop:verProducto' value.producto_id %}">
+                                    {% comment %} <img src="http://placehold.it/100x67" alt=""> {% endcomment %}
+                                    <img src={{ value.imagen }} alt="">
+                                    {{ value.nombre}}
+                                </a>
+                                <span class="quantity">{{value.cantidad}} &times; {{ value.precio }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <p class="total"><b>Subtotal:</b>S/ {{request.session.totalCart }}</p>
+                        <p class="buttons">
+                            <a href="{% url 'bikeshop:mostrarCarrito' %}" class="button">Ver Carrito</a>
+                            <a href="checkout.html" class="button">Pagar</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+
             <li class="h-menu-btn" id="h-menu-btn">
-                
-                <i class="ion-navicon"></i>
+                <i class="ion-navicon"></i> Menu
             </li>
         </ul>
     </div><!--
@@ -80,45 +200,62 @@
 
         <nav id="h-menu" class="h-menu">
             <ul>
-                <!-- <li class="menu-item active">
+                <li class="menu-item active">
                     <a href={% url 'bikeshop:index' %}>Inicio</a>
                     <ul class="sub-menu">
                     </ul>
-                </li> -->
+                </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Consulta Nutricional</a>
+                    <a href="catalog-gallery.html">Tienda</a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="{% url 'bikeshop:registrarDiagnostico' %}">Realizar nuevo Diagnóstico</a>
+                            <a href="catalog-gallery.html">Catalog - Gallery</a>
                         </li>
                         <li>
-                            <a href="{% url 'bikeshop:verDiagnosticos' %}">Ver Diagnósticos</a>
-                        </li>                     
+                            <a href="catalog-list.html">Catalog - List</a>
+                        </li>
+                        <li>
+                            <a href="catalog-gallery-full.html">Catalog - No Sidebar</a>
+                        </li>
+                        <li>
+                            <a href="product.html">Product Page</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="cart.html">Shop Pages</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="cart.html">Cart</a>
+                                </li>
+                                <li>
+                                    <a href="wishlist.html">Wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="compare.html">Compare</a>
+                                </li>
+                                <li>
+                                    <a href="auth.html">Login</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#">Pacientes</a>
+                    <a href="about.html">Paginas</a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="{% url 'bikeshop:registrarPaciente' %}">Registrar nuevo Paciente</a>
+                            <a href="about.html">About Us</a>
                         </li>
                         <li>
-                            <a href="{% url 'bikeshop:buscarPaciente' %}">Ver mis Pacientes</a>
+                            <a href="contacts.html">Contacts</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="404.html">Error 404</a>
                         </li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="#">Calculadora nutricional</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="#">Abrir Nutrimática</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'bikeshop:registrarAlimento' %}">Actualizar tabla de alimentos</a>
-                        </li>
-                    </ul>
-                </li>
-                
             </ul>
         </nav>
 
@@ -136,40 +273,93 @@
     <div class="container-fluid blog-sb-widgets page-styling site-footer">
         <div class="row">
             <div class="col-sm-12 col-md-4 widget align-center-tablet f-logo-wrap">
-                <a href="{% url 'bikeshop:index' %}" class="f-logo">
-                    <img src="{% static 'assets/img/logo2.png' %}" alt="">
+                <a href="index.html" class="f-logo">
+                    <img src="{% static 'assets/img/logo.png' %}" alt="">
                 </a>
-                <p>2022 - Todos los derechos reservados® </p>
+                <p>Tienda de Ciclismo y Aventura</p>
+                <button class="btn callback">Contactanos</button>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Plataforma</h3>
+                <h3 class="widgettitle">Empresa</h3>
                 <ul class="menu">
                     <li>
-                        <a href="#">Inicio</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#">Panel de administracion</a>
+                        <a href="about.html">Acerca de Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="contacts.html">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="index.html">Galleria</a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Nosotros</h3>
+                <h3 class="widgettitle">Tienda</h3>
                 <ul class="menu">
                     <li>
-                        <a href="#">Contacto</a>
+                        <a href="catalog-list.html">MTB</a>
+                    </li>
+                    <li>
+                        <a href="catalog-gallery.html">RUTA</a>
+                    </li>
+                    <li>
+                        <a href="catalog-gallery-full.html">Triatlon</a>
+                    </li>
+                    <li>
+                        <a href="catalog-gallery.html">Time Trial</a>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
-                <h3 class="widgettitle">Mas</h3>
+                <h3 class="widgettitle">Account</h3>
                 <ul class="menu">
                     <li>
-                        <a href="#UPSIDE">Volver arriba</a>
+                        <a href="wishlist.html">Registrate</a>
+                    </li>
+                    <li>
+                        <a href="compare.html">Inicie Sesion</a>
+                    </li>
+                    <li>
+                        <a href="cart.html">Carrito</a>
+                    </li>
+                    <li>
+                        <a href="auth.html">Tienda</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 align-center-mobile widget">
+                <h3 class="widgettitle">Blog</h3>
+                <ul class="menu">
+                    <li>
+                        <a href="blog.html">All Posts</a>
+                    </li>
+                    <li>
+                        <a href="post.html">News</a>
+                    </li>
+                    <li>
+                        <a href="post-slider.html">Articles</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">Reviews</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <div class="form-validate modal-form" id="modal-form">
+        <form action="#" method="POST" class="form-validate">
+            <h4>Contact Us</h4>
+            <input type="text" placeholder="Your name" data-required="text" name="name">
+            <input type="text" placeholder="Your phone" data-required="text" name="phone">
+            <input type="text" placeholder="Your email" data-required="text" data-required-email="email" name="email">
+            <input class="btn1" type="submit" value="Send">
+        </form>
+    </div>
+
     
 </div><!-- #page -->
 

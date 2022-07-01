@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="content" class="site-content"><div id="primary" class="content-area width-normal">
+    <main id="main" class="site-main">
+        <div class="cont maincont">
+            <h1 class="maincont-ttl">Registro</h1>
+            <ul class="b-crumbs">
+                <li><a href="{% url 'bikeshop:index' %}">Home</a></li>
+                <li>Registro</li>
+            </ul>                                                <article class="page-cont">
+            <div class="page-styling">
+
+                <div style="color:red; font-weight: bolder" role="alert">
+                    {{error}}
+                  </div>
+                <div class="auth-wrap">
+                    <div class="auth-col">
+                        <h2>Regístrate</h2>
+                        <form method="post" class="login" action={% url 'bikeshop:registroCliente' %}>
+                            {% csrf_token %}
+                            <p>
+                                <label for="usuario">E-mail <span class="required">*</span></label>
+                                <input type="text" name ="usuario" id="usuario" placeholder="tu nombre de usuario">
+                            </p>
+                            <p>
+                                <label for="password">Contraseña <span class="required">*</span></label>
+                                <input type="password" name="clave" id="clave" placeholder="tu clave">
+                            </p>
+                            <p>
+                                <label for="nombre">Nombres<span class="required">*</span></label>
+                                <input type="text" name="nombre" id="nombre" placeholder="tu nombre">
+                            </p>
+                            <p>
+                                <label for="apellido">Apellidos <span class="required">*</span></label>
+                                <input type="text" name="apellido" id="apellido" placeholder="tus apellidos">
+                            </p>
+                            <p>
+                                <label for="telefono">Telefono <span class="required">*</span></label>
+                                <input type="text" name="telefono" id="telefono" placeholder="tu celular">
+                            </p>
+                            <p>
+                                <label for="pemail">Email <span class="required">*</span></label>
+                                <input type="email" name="email" id="email" placeholder="tu email">
+                            </p>
+                            <p class="auth-submit">
+                                <input type="submit" value="Registrar datos">
+                                <input type="checkbox" id="rememberme" value="forever">
+                            </p>
+                        </form>
+                    </div>                
+                </div>
+            </div>
+        </article>
+        </div>
+    </main><!-- #main -->
+</div><!-- #primary -->    </div><!-- #content -->
+{% endblock %}

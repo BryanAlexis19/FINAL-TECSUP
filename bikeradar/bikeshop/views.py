@@ -26,20 +26,18 @@ def verDiagnosticos(request):
     return render(request, 'verDiagnosticos.html')
 
 #-----------VISTAS DEL ALIMENTO-------------------
+def verAlimentos(request):
+    return render(request, 'verAlimentos.html')
+
 def registrarAlimento(request):
     return render(request, 'registrarAlimento.html')
+
+def actualizarAlimento(request):
+    return render(request, 'actualizarAlimento.html')
     
 
 
-
-
-
-
-
-
-
 # Create your views here.
-
 
 def index(request):
     lstCategorias = Categoria.objects.all()
